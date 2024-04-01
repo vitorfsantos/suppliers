@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([], base_path('app/Modules/Auth/routes.php'));
+Route::group([], base_path('app/Modules/Users/routes.php'));

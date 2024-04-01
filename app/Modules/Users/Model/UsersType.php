@@ -1,19 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\Users\Model;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
-use App\Modules\Users\Model\UsersType;
 
 
 
-class User extends Authenticatable
+class UsersType extends Authenticatable
 {
   use HasFactory, Notifiable, HasUuids, SoftDeletes;
 
@@ -22,13 +19,9 @@ class User extends Authenticatable
    *
    * @var array<int, string>
    */
-  protected $table = 'users';
+  protected $table = 'user_type';
   protected $fillable = [
-    'type_id',
-    'name',
-    'email',
-    'password',
-    'remember_token',
+    'type',
   ];
 
   /**
@@ -36,9 +29,5 @@ class User extends Authenticatable
    *
    * @var array<int, string>
    */
-  protected $hidden = [
-    'password',
-    'remember_token',
-  ];
 
 }

@@ -12,7 +12,7 @@ use App\Modules\Auth\Requests\AuthRequest;
 
 class AuthController extends Controller
 {
-  private const COOKIE_NAME = 'auth-mundo-glass2';
+  private const COOKIE_NAME = 'auth-supplier';
 
   public static function getCookieName()
   {
