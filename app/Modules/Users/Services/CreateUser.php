@@ -3,11 +3,14 @@
 namespace App\Modules\Users\Services;
 
 use App\Models\User;
+use App\Traits\GetUser;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class CreateUser
 {
+  use GetUser;
   public function create($request)
   {
     try {

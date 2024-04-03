@@ -21,6 +21,7 @@ class Authenticate
   public function handle(Request $request, Closure $next): Response
   {
     if (!Str::endsWith($request->url(), '/auth/login')) {
+      // dd(auth()->user());
       if(!$request->hasCookie(AuthController::getCookieName())){
         return response(['Usuário não está logado'], 401);
       }

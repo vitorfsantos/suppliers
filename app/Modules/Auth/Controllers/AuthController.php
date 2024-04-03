@@ -25,9 +25,9 @@ class AuthController extends Controller
     if (!Auth::attempt($credentials)) {
       return response(['message' => 'Usuário ou senha inválido'], 401);
     }
+    Auth::attempt($credentials);
     $user = auth()->user();
-
-    setcookie( self::COOKIE_NAME, json_encode($user['id']), time()+24 * 60 * 60, '/', '', true, true);
+    setcookie( self::COOKIE_NAME, $user['id'], time()+24 * 60 * 60, '/', '', true, true);
 
     return response($user, 200);
   }

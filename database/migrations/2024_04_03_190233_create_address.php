@@ -11,17 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('suppliers_address', function (Blueprint $table) {
+        Schema::create('address', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('supplier_id');
+            $table->uuid('supplier_id')->nullable();
+            $table->uuid('store_id')->nullable();
             $table->string('CEP');
             $table->string('city');
             $table->string('state');
             $table->string('street');
             $table->integer('number');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('supplier_id')->references('id')->on('suppliers');
+            $table->foreign('store_id')->references('id')->on('stores');
         });
     }
 
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('suppliers_address');
+        Schema::dropIfExists('address');
     }
 };

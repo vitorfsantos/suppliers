@@ -16,6 +16,7 @@ return new class extends Migration
             $table->uuid('supplier_id');
             $table->uuid('store_id');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('supplier_id')->references('id')->on('suppliers');
             $table->foreign('store_id')->references('id')->on('stores');

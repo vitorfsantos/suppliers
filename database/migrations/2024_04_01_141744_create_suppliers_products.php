@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('images')->nullable();
             $table->text('qr_code');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('supplier_id')->references('id')->on('suppliers');
         });
