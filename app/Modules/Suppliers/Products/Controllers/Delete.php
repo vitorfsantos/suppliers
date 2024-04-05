@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Modules\Suppliers\Controllers;
+namespace App\Modules\Suppliers\Products\Controllers;
 use Illuminate\Routing\Controller;
 
-use App\Modules\Suppliers\Services\DeleteSupplier;
+use App\Modules\Suppliers\Products\Services\DeleteProduct;
 
 class Delete extends Controller
 {
-  private DeleteSupplier $supplier;
+  private DeleteProduct $product;
 
-  public function __construct(DeleteSupplier $supplier)
+  public function __construct(DeleteProduct $product)
   {
-    $this->supplier = $supplier;
+    $this->product = $product;
   }
   public function delete($id)
   {
-    $supplier = $this->supplier->delete($id);
-    return response($supplier->getContent(), $supplier->getStatusCode());
+    $product = $this->product->delete($id);
+    return response($product->getContent(), $product->getStatusCode());
   }
 }

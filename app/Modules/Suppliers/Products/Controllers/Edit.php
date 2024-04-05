@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Modules\Suppliers\Controllers;
+namespace App\Modules\Suppliers\Products\Controllers;
 use Illuminate\Routing\Controller;
 
-use App\Modules\Suppliers\Requests\SuppliersRequest;
-use App\Modules\Suppliers\Services\EditSupplier;
+use App\Modules\Suppliers\Products\Requests\ProductsRequest;
+use App\Modules\Suppliers\Products\Services\EditProduct;
 
 
 
 class Edit extends Controller
 {
-	private EditSupplier $supplier;
+	private EditProduct $product;
 
-	public function __construct(EditSupplier $supplier)
+	public function __construct(EditProduct $product)
 	{
-		$this->supplier = $supplier;
+		$this->product = $product;
 	}
 
-	public function edit(SuppliersRequest $request, $id)
+	public function edit(ProductsRequest $request, $id)
 	{
-		$supplier = $this->supplier->update($request->validated(), $id);
+		$product = $this->product->update($request->validated(), $id);
     
-		return response($supplier->getContent(), $supplier->getStatusCode() == 200 ? 200 : 400);
+		return response($product->getContent(), $product->getStatusCode() == 200 ? 200 : 400);
 	}
 }

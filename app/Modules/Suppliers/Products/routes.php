@@ -1,8 +1,8 @@
 <?php
-use App\Modules\Suppliers\Controllers\Create;
-use App\Modules\Suppliers\Controllers\Delete;
-use App\Modules\Suppliers\Controllers\Edit;
-use App\Modules\Suppliers\Controllers\Get;
+use App\Modules\Suppliers\Products\Controllers\Create;
+use App\Modules\Suppliers\Products\Controllers\Delete;
+use App\Modules\Suppliers\Products\Controllers\Edit;
+use App\Modules\Suppliers\Products\Controllers\Get;
 
 use Illuminate\Support\Facades\Route;
 

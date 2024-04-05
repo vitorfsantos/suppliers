@@ -4,15 +4,15 @@ namespace App\Modules\Suppliers\Products\Controllers;
 use Illuminate\Routing\Controller;
 
 use App\Modules\Suppliers\Products\Requests\ProductsRequest;
-use App\Modules\Suppliers\Products\Services\CreateSupplier;
+use App\Modules\Suppliers\Products\Services\CreateProduct;
 
 
 
 class Create extends Controller
 {
-	private CreateSupplier $product;
+	private CreateProduct $product;
 
-	public function __construct(CreateSupplier $product)
+	public function __construct(CreateProduct $product)
 	{
 		$this->product = $product;
 	}

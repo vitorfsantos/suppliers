@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Modules\Suppliers\Controllers;
+namespace App\Modules\Suppliers\Products\Controllers;
 use Illuminate\Routing\Controller;
 
-use App\Modules\Suppliers\Services\GetSuppliers;
+use App\Modules\Suppliers\Products\Services\GetProduct;
 
 class Get extends Controller
 {
-  private GetSuppliers $suppliers;
+  private GetProduct $product;
 
-  public function __construct(GetSuppliers $suppliers)
+  public function __construct(GetProduct $product)
   {
-    $this->suppliers = $suppliers;
+    $this->product = $product;
   }
   public function getAll()
   {
-    return response($this->suppliers->getAll(), 200);
+    return response($this->product->getAll(), 200);
   }
   public function getById($id)
   {
-    return response($this->suppliers->getById($id), 200);
+    return response($this->product->getById($id), 200);
   }
 }
