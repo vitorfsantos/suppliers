@@ -5,6 +5,7 @@ namespace App\Modules\Suppliers\Products\Services;
 use App\Modules\Suppliers\Products\Model\Products;
 use App\Traits\StoreFiles;
 
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class CreateSupplier
 {
@@ -14,7 +15,13 @@ class CreateSupplier
     try {
       if(isset($request['images'])){
         $image = $this->storeLocal($request['images'], "partners/" . $request['supplier_id'] . "products/", $request['product'] . '.'. $request['images']->extension());
-        dd($image);
+        $request['images'] = $image;
+      }
+      if(isset($request['qr_code_link'])){
+        $request['qr_code'] = QrCode::format('png')
+        ->generate(
+            $request['qr_code_link'],
+        );
       }
       dd($request);
       $supplier = Products::create($request);

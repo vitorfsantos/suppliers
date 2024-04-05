@@ -30,7 +30,7 @@ class ProductsRequest extends FormRequest
       'product'        => ['string', 'required', 'max:255'],
       'description'    => ['string', 'max:255'],
       'images'         => [''],
-      'qr_code_link'   => ['string', 'required', 'max:255'],
+      'qr_code_link'   => ['string', 'max:255'],
     ];
   }
 
