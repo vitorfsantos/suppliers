@@ -8,7 +8,7 @@ trait StoreFiles
 {
   public function storeLocal($file, $path, $name)
   {
-    $file = $file->storeAs($path, $name, ["disk" => "local"]);
+    $file = $file->storeAs($path, $name, ["disk" => "public"]);
     return  Storage::disk('local')->url($file);
   }
 }
